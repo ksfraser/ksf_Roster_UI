@@ -1,69 +1,56 @@
-# Business Requirements - ksf_Roster
+# Business Requirements - ksf_Roster_UI
 
-## Project Overview
-Shift scheduling and employee availability - integrates with Calendar and Leave.
+## Document Information
+- **Module**: ksf_Roster_UI
+- **Version**: 1.0.0
+- **Date**: 2026-05-11
+- **Status**: Implemented
+- **Author**: KSFII Development Team
 
-## Problem Statement
-- Need fixed schedules (8-5)
-- Need flexible schedules (8 hours between 6am-6pm)
-- Need rotating shift schedules
-- Need to see employee availability for meeting invites
-- Need to catch coverage gaps
+---
 
-## Employee Schedule Types
+## 1. Project Overview
 
-### Fixed Schedule
-- Start/End time same every day
-- Example: 8:00 - 17:00
+ksf_Roster_UI is the WordPress ESS adapter for ksf_Roster, providing the user interface for Roster functionality.
 
-### Flexible Schedule  
-- 8 hour day, can vary
-- Example: 7:00-15:00 OR 9:00-17:00
+---
 
-### Rotating Shift
-- Days/Weeks in sequence
-- Example: Day shift (M-W), Night shift (Th-Sat), Off (Sun-Tue)
+## 2. Adapter Pattern
 
-## Scope
 
-### Shift Templates
-- Name (e.g., "Day Shift", "Night Shift")
-- Start time
-- End time
-- Days of week
 
-### Schedule Types
-- Fixed
-- Flexible  
-- Rotating
+---
 
-### Team Assignment
-- Assign schedule to teams
-- Override for individual employees
+## 3. Stakeholders
 
-### Calendar Integration
-- Daily schedule → Calendar "Available" blocks
-- Meeting invites check availability
-- iCal free/busy integration
+- Employees (end users)
+- HR Admin (management)
+- Managers (oversight)
 
-### Leave Impact
-- Leave request warns if coverage gap
-- Flag critical shift positions
-- Allow override with approval
+---
 
-### Training Impact
-- Training scheduled during shift warns
-- Flag training conflicts
+## 4. Scope
 
-## Schedule Fields
-- schedule_name
-- schedule_type (fixed/flexible/rotating)
-- default_start_time
-- default_end_time
-- rotation_days
+### UI Components
 
-## Integration
-- ksf_HRM: Employee schedule assignment
-- ksf_Leave: Leave approval checks coverage
-- ksf_Training: Training checks shift conflicts
-- ksf_Calendar: "Available" calendar entries
+Refer to Architecture.md for component details.
+
+---
+
+## 5. Integration
+
+### Consumed From
+| Module | Data |
+|--------|------|
+| ksf_Roster | Business logic |
+| ksf_HRM | Employee data |
+
+### Provided To
+| Module | Data |
+|--------|------|
+| WordPress | ESS page templates |
+
+---
+
+*Document Version: 1.0.0*
+*Last Updated: 2026-05-11*
